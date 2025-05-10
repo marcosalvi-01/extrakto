@@ -34,6 +34,8 @@ if [ "$split_direction" = "p" ]; then
 	popup_x=$(echo $popup_position | cut -d',' -f1)
 	popup_y=$(echo $popup_position | cut -d',' -f2)
 
+    popup_border=$(get_option "@extrakto_popup_border" "single")
+
 	rc=129
 	while [ $rc -eq 129 ]; do
 		tmux popup \
@@ -41,7 +43,7 @@ if [ "$split_direction" = "p" ]; then
 			-h "${popup_height:-${popup_width}}" \
 			-x "${popup_x}" \
 			-y "${popup_y:-$popup_x}" \
-            -b rounded \
+            -b "${popup_border}" \
 			$extra_options \
 			-E "${extrakto} ${pane_id} popup"
 		rc=$?
