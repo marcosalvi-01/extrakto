@@ -41,6 +41,7 @@ if [ "$split_direction" = "p" ]; then
 			-h "${popup_height:-${popup_width}}" \
 			-x "${popup_x}" \
 			-y "${popup_y:-$popup_x}" \
+            -b rounded \
 			$extra_options \
 			-E "${extrakto} ${pane_id} popup"
 		rc=$?
